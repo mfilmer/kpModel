@@ -18,8 +18,8 @@ charEqu p x = p * sin x / x + cos x + 1
 pArray = logspace 0.1 1000 1000
 equArray = map charEqu pArray
 alphaAArray = map (\x -> N.solve x (N.guess x (1.1*pi, 2*pi))) equArray
-egArray = map e alphaAArray
+egArray = map eg alphaAArray
   where
-    e alpha = alpha - pi
+    eg alphaA = alphaA - pi
 
 main = mapM_ putStrLn [show x ++ ", " ++ show y |(x,y) <- zip pArray egArray]
